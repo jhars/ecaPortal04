@@ -1,0 +1,9 @@
+<!-- app/views/welcome/index.html.erb -->
+  
+<%= form_for :trip, url: {action: "show"}, html: {method: "get"} do |f| %>
+  <%= f.select :district_id, options_for_select(@districts.collect { |district|
+    [district.name.titleize, district.id] }, 1), {}, { id: 'districts_select' } %>
+  <%= f.select :school_id, options_for_select(@schools.collect { |school|
+    [school.name.titleize, school.id] }, 0), {}, { id: 'schools_select' } %>
+  <%= f.submit "Go!" %>
+<% end %>
